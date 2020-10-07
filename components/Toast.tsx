@@ -1,5 +1,6 @@
 import React, {FC, useEffect, useRef, useCallback} from "react";
-import { StyleSheet, Text, View, Animated } from "react-native";
+import Constants from 'expo-constants'
+import { StyleSheet, Text, View, Animated, SafeAreaView } from "react-native";
 import { ToastType } from "./ToastProvider";
 import { useToast } from "../hooks/useToast";
 
@@ -8,6 +9,7 @@ const fadeDuration = 300;
 export const Toast: FC = () => {
   const opacity = useRef(new Animated.Value(0)).current;
   const { toastConfig, hideToast } = useToast();
+  console.log("BarHeight",Constants.statusBarHeight)
   
   const fadeIn = useCallback(() => {
       Animated.timing(opacity, {
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
   container: {
     alignSelf: "center",
     position: "absolute",
-    bottom: 50, // Right now toast is at the very bottom, we will solve this later
+    paddingTop: Constants.statusBarHeight,
     marginHorizontal: 20,
     maxWidth: '480',
   },
