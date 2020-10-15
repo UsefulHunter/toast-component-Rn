@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     paddingTop: Constants.statusBarHeight,
     marginHorizontal: 20,
-    maxWidth: '480',
+    maxWidth: 480,
   },
   toast: {
     borderRadius: 6,
