@@ -1,21 +1,26 @@
-import React, {useState} from 'react';
-import { StyleSheet } from 'react-native';
-import { Text, View } from '../components/Themed';
-import SplashScreen, {preventAutoHideAsync, hideAsync} from 'expo-splash-screen'
+import React, { useState } from "react";
+import { StyleSheet } from "react-native";
+import { Text, View } from "../components/Themed";
+import SplashScreen, {
+  preventAutoHideAsync,
+  hideAsync,
+} from "expo-splash-screen";
 
 export default function TabTwoScreen() {
   const [isReady, setIsReady] = useState(false);
+
   const prepareResources = async () => {
     try {
-      console.log('async log');
-    } catch(e) {
+      console.log("async log");
+    } catch (e) {
       console.warn(e);
     } finally {
-      setIsReady(true), async () => {
-        await hideAsync();
-      }
+      setIsReady(true),
+        async () => {
+          await hideAsync();
+        };
     }
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -27,16 +32,16 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   separator: {
     marginVertical: 30,
     height: 1,
-    width: '80%',
+    width: "80%",
   },
 });

@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { StyleSheet } from 'react-native';
-import { CallToast } from '../components/CallToast';
-
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
+import * as React from "react";
+import { StyleSheet } from "react-native";
+import { CallToast } from "../components/CallToast";
+import Loader from "../components/Loader";
+import { Text, View } from "../components/Themed";
 
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <EditScreenInfo path="/screens/TabOneScreen.js" />
-      <CallToast />
+      <Loader>
+        <CallToast />
+      </Loader>
     </View>
   );
 }
@@ -17,16 +17,16 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   separator: {
     marginVertical: 30,
     height: 1,
-    width: '80%',
+    width: "80%",
   },
 });
